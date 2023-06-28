@@ -22,12 +22,16 @@ connectToDatabase();
 const express = require('express');
 const app = express();
 const cors = require("cors");
-console.log("App listen at port 5000");
+
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
 app.use(cors());
-app.listen(5000);
+
+app.listen(port, () => {
+  console.log(`Aplikacija posluša na vratih ${port}`);
+});
 
 app.get("/", (req, resp) => {
  
